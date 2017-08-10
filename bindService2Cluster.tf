@@ -4,14 +4,14 @@ data "ibm_service_plan" "service_plan" {
 }
 
 resource "ibm_service_instance" "service" {
-  name       = "MyCloudantDB"
+  name       = "CloudantDB4Cluster"
   space_guid = "${data.ibm_space.spaceinst.id}"
   service    = "${data.ibm_service_plan.service_plan.service}"
   plan       = "${data.ibm_service_plan.service_plan.plan}"
 }
 
 resource "ibm_service_key" "serviceKey" {
-  name                  = "MyCloudantDBTestKey"
+  name                  = "CloudantDB4ClusterTestKey"
   service_instance_guid = "${ibm_service_instance.service.id}"
 }
 

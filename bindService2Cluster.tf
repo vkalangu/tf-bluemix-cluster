@@ -22,7 +22,7 @@ resource "ibm_container_bind_service" "clusterbind" {
   account_guid = "${data.ibm_account.acc.id}"
   depends_on               = ["ibm_service_key.serviceKey"]
   cluster_name_id          = "${ibm_container_cluster.testacc_cluster.name}"
-  service_instance_space_guid = "${data.ibm_space.spaceinst.id}"
+  service_instance_space_guid = "${data.ibm_space.space.id}"
   service_instance_name_id = "${ibm_service_instance.service.id}"
   namespace_id             = "default"
 }

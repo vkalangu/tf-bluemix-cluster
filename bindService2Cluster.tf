@@ -5,7 +5,7 @@ data "ibm_service_plan" "service_plan" {
 
 resource "ibm_service_instance" "service" {
   name       = "CloudantDB4Cluster"
-  space_guid = "${data.ibm_space.spaceinst.id}"
+  space_guid = "${data.ibm_space.space.id}"
   service    = "${data.ibm_service_plan.service_plan.service}"
   plan       = "${data.ibm_service_plan.service_plan.plan}"
 }
@@ -18,7 +18,7 @@ resource "ibm_service_key" "serviceKey" {
 
 resource "ibm_container_bind_service" "clusterbind" {
   org_guid     = "${data.ibm_org.orginst.id}"
-  space_guid   = "${data.ibm_space.spaceinst.id}"
+  space_guid   = "${data.ibm_space.space.id}"
   account_guid = "${data.ibm_account.acc.id}"
   depends_on               = ["ibm_service_key.serviceKey"]
   cluster_name_id          = "${ibm_container_cluster.testacc_cluster.name}"

@@ -32,9 +32,6 @@ resource "ibm_container_cluster" "testacc_cluster" {
     },
     {
       name   = "vjtftestJun22_1-w3"
-    },,
-    {
-      name   = "vjtftestJun22_1-w4"
     },
   ]
 
